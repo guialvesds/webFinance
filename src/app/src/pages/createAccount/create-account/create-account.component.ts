@@ -12,6 +12,9 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractContro
 })
 export class CreateAccountComponent {
   criarContaForm: FormGroup;
+  loading: boolean = false; 
+  successMessage: string | null = null; 
+  apiErrorMessage: string | null = null;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.criarContaForm = this.fb.group({
@@ -20,29 +23,38 @@ export class CreateAccountComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmarSenha: ['', Validators.required]
-    }, { validators: this.senhasCombinam }); 
+    }, { validators: this.senhasCombinam });
   }
 
-  
+  // Validação personalizada para verificar se as senhas coincidem
   senhasCombinam(group: AbstractControl): ValidationErrors | null {
-    const senha = group.get('password')?.value; 
+    const senha = group.get('password')?.value;
     const confirmarSenha = group.get('confirmarSenha')?.value;
     return senha === confirmarSenha ? null : { senhasNaoCombinam: true };
   }
 
   onSubmit() {
     if (this.criarContaForm.valid) {
+      this.loading = true; 
+      this.successMessage = null; 
+      this.apiErrorMessage = null; 
+
       this.http.post('http://localhost:8080/api/v1/users', this.criarContaForm.value)
         .subscribe({
           next: (response) => {
-            console.log('Conta criada com sucesso', response);
+            this.loading = false; 
+            this.successMessage = 'Cadastro realizado com sucesso!'; 
+            this.criarContaForm.reset(); 
           },
           error: (error) => {
-            console.error('Erro ao criar conta', error);
+            this.loading = false; 
+            if (error.status === 400 && error.error === "Email already exists") {
+              this.apiErrorMessage = "Este email já está em uso. Por favor, use outro email.";
+            } else {
+              this.apiErrorMessage = "Ocorreu um erro ao cadastrar. Tente novamente mais tarde.";
+            }
           }
         });
-    } else {
-      console.log('Formulário inválido');
     }
   }
 }
