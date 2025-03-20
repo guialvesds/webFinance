@@ -1,0 +1,46 @@
+<div class="criar-conta-container">
+    <h2>Criar Conta</h2>
+    <form [formGroup]="criarContaForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" id="primaryName" formControlName="primaryName" class="form-control" />
+        <div *ngIf="criarContaForm.get('primaryName')?.invalid && criarContaForm.get('primaryName')?.touched" class="error-message">
+          Nome é obrigatório.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="nome">Sobrenome</label>
+        <input type="text" id="secondName" formControlName="secondName" class="form-control" />
+        <div *ngIf="criarContaForm.get('secondName')?.invalid && criarContaForm.get('secondName')?.touched" class="error-message">
+          Sobrenome é obrigatório.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" class="form-control" />
+        <div *ngIf="criarContaForm.get('email')?.invalid && criarContaForm.get('email')?.touched" class="error-message">
+          Por favor, insira um email válido.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" id="password" formControlName="password" class="form-control" />
+        <div *ngIf="criarContaForm.get('password')?.invalid && criarContaForm.get('password')?.touched" class="error-message">
+          A senha deve ter pelo menos 6 caracteres.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="confirmarSenha">Confirmar Senha</label>
+        <input type="password" id="confirmarSenha" formControlName="confirmarSenha" class="form-control" />
+        <div *ngIf="criarContaForm.hasError('senhasNaoCombinam') && criarContaForm.get('confirmarSenha')?.touched" class="error-message">
+          As senhas não coincidem.
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="criarContaForm.invalid" class="btn btn-primary">Criar Conta</button>
+    </form>
+  </div>
