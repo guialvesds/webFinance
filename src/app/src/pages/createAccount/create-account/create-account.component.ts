@@ -5,8 +5,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractContro
 
 @Component({
   selector: 'app-create-account',
-  standalone: true, // Marca o componente como standalone
-  imports: [ReactiveFormsModule, CommonModule], // Importa módulos necessários
+  standalone: true, 
+  imports: [ReactiveFormsModule, CommonModule], 
   templateUrl: './create-account.component.html',
   styleUrls: ['./create-account.component.scss']
 })
@@ -20,12 +20,12 @@ export class CreateAccountComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmarSenha: ['', Validators.required]
-    }, { validators: this.senhasCombinam }); // Corrigido para 'validators'
+    }, { validators: this.senhasCombinam }); 
   }
 
-  // Validação personalizada para verificar se as senhas coincidem
+  
   senhasCombinam(group: AbstractControl): ValidationErrors | null {
-    const senha = group.get('password')?.value; // Corrigido para 'password'
+    const senha = group.get('password')?.value; 
     const confirmarSenha = group.get('confirmarSenha')?.value;
     return senha === confirmarSenha ? null : { senhasNaoCombinam: true };
   }
