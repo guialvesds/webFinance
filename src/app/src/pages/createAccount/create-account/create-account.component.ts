@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-account',
@@ -16,7 +17,7 @@ export class CreateAccountComponent {
   successMessage: string | null = null; 
   apiErrorMessage: string | null = null;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
     this.criarContaForm = this.fb.group({
       primaryName: ['', Validators.required],
       secondName: ['', Validators.required],
@@ -31,6 +32,10 @@ export class CreateAccountComponent {
     const senha = group.get('password')?.value;
     const confirmarSenha = group.get('confirmarSenha')?.value;
     return senha === confirmarSenha ? null : { senhasNaoCombinam: true };
+  }
+
+ public goToLogin() {
+    this.router.navigate(['login']);
   }
 
   onSubmit() {

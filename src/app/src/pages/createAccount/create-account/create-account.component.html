@@ -1,3 +1,4 @@
+<div class="container">
 <div class="registration-container">
     <h2>Criar Conta</h2>
   
@@ -57,13 +58,14 @@
     <button type="submit" [disabled]="criarContaForm.invalid || loading" class="btn btn-primary">
       <span *ngIf="!loading">Criar Conta</span>
       <span *ngIf="loading">
-        <div class="spinner"></div> Cadastrando...
+         Cadastrando...
       </span>
     </button>
   </form>
 
   <!-- Link para Login -->
   <div class="next-step">
-    Já tem uma conta? <a routerLink="/login">Faça login</a>
+    Já tem uma conta? <a (click)="goToLogin()">Faça login</a>
   </div>
+</div>
 </div>
