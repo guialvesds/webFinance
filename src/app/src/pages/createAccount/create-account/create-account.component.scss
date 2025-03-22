@@ -10,9 +10,9 @@
     width: 30rem;
     margin: 50px auto;
     padding: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(129, 129, 129);
     border-radius: 8px;
-    background-color: #e4e4e4;
+    background-color: #f3f3f3;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
   
@@ -30,9 +30,9 @@
 
     .success-message {
       background-color: #d4edda;
-      color: #11ce3d;
+      color: #18a338;
       padding: 10px;
-      font-size: 14px;
+      font-size: 16px;
       border-radius: 4px;
       margin-bottom: 20px;
       text-align: center;
@@ -40,7 +40,7 @@
 
     .error-message {
       color: #db2437;
-      font-size: 14px;
+      font-size: 16px;
       margin-top: 5px;
     }
   
