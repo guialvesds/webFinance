@@ -35,7 +35,7 @@ export class CreateAccountComponent {
   }
 
  public goToLogin() {
-    this.router.navigate(['login']);
+    this.router.navigate(['']);
   }
 
   onSubmit() {

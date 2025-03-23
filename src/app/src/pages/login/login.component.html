@@ -1,5 +1,42 @@
-
-<div class="teste">
-    <p>login works!</p>
-</div>
-
+<div class="container">
+    <div class="registration-container">
+        <h2>Login</h2>
+      
+      <!-- Mensagem de erro da API -->
+      <div *ngIf="apiErrorMessage" class="error-message">
+        {{ apiErrorMessage }}
+      </div>
+    
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+       
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" formControlName="email" class="form-control" placeholder="Insira seu email" />
+          <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-message">
+            Por favor, insira um email válido.
+          </div>
+        </div>
+    
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input type="password" id="password" formControlName="password" class="form-control" placeholder="Insira sua senha" />
+          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
+            A senha deve ter pelo menos 6 caracteres.
+          </div>
+        </div>
+       
+        <!-- Botão de Submit com Loading -->
+        <button type="submit" [disabled]="loginForm.invalid || loading" class="btn btn-primary">
+          <span *ngIf="!loading">Entrar</span>
+          <span *ngIf="loading">
+             Logando...
+          </span>
+        </button>
+      </form>
+    
+      <!-- Link para Login -->
+      <div class="next-step">
+        Não tem conta? <a (click)="goToAccount()">Criar conta</a>
+      </div>
+    </div>
+    </div>
