@@ -27,7 +27,6 @@ export class CreateAccountComponent {
     }, { validators: this.senhasCombinam });
   }
 
-  // Validação personalizada para verificar se as senhas coincidem
   senhasCombinam(group: AbstractControl): ValidationErrors | null {
     const senha = group.get('password')?.value;
     const confirmarSenha = group.get('confirmarSenha')?.value;
