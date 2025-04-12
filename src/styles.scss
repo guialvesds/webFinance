@@ -1,6 +1,18 @@
 
-
+@use  '@angular/material' as mat;
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+
+
+
+// Personalize todo o aplicativo. Altere :root para o seu seletor se quiser delimitar os estilos. 
+:root {
+   @include mat.toolbar-overrides((
+     container-background-color : #86d4c2,
+     container-text-color : #266456,
+     title-text-weight: 500,
+  ));
+}
 
 * {
 
