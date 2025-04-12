@@ -1,3 +1,25 @@
-.example-spacer {
+.container {
     flex: 1 1 auto;
-  }
+
+    .example-spacer {
+        flex: 1 1 auto;
+    
+        mat-icon {
+            color: #266456,
+          }
+      }
+
+      .example-container {
+        width: auto;
+        height: 100vh;
+        margin: 1px;
+        background: #eee;
+      }
+    
+}
+
+
+ 
+
+ 
+  
