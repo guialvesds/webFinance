@@ -4,8 +4,6 @@
 
 
 
-
-// Personalize todo o aplicativo. Altere :root para o seu seletor se quiser delimitar os estilos. 
 :root {
    @include mat.toolbar-overrides((
      container-background-color : #86d4c2,
