@@ -1,0 +1,24 @@
+<div>
+  <a routerLink="{{ routerLink }}">
+    <span
+      class="my-1 flex w-full items-center justify-start p-6 hover:text-white {{
+        currentRoute() === routerLink
+          ? 'font-medium text-black-400 hover:text-black-400'
+          : 'text-white'
+      }}"
+    >
+      <span>
+        <ng-content />
+      </span>
+      <span
+        class="mx-4 text-sm whitespace-pre {{
+          sidebarOpen()
+            ? 'lg:duration-500 lg:ease-in lg:h-auto lg:opacity-100 lg:transition-all lg:w-auto'
+            : 'lg:duration-700 lg:ease-out lg:invisible lg:opacity-0 lg:transition-all'
+        }}"
+      >
+        {{ title }}
+      </span>
+    </span>
+  </a>
+</div>
