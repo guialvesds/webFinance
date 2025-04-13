@@ -40,7 +40,7 @@ export class LoginComponent {
       this.loginForm.reset(); 
 
       if(response == "Login Successful") {
-        this.router.navigate(['home']);
+        this.router.navigate(['dash/home']);
 
       }
     },
