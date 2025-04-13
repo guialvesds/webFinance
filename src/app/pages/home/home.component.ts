@@ -15,5 +15,4 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 
 export class HomeComponent {
 
-  // showFiller = true;
 }

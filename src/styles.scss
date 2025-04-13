@@ -1,35 +1,40 @@
 
-@use  '@angular/material' as mat;
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+// @use  '@angular/material' as mat;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+// @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
 
 
-:root {
-   @include mat.toolbar-overrides((
-     container-background-color : #86d4c2,
-     container-text-color : #266456,
-     title-text-weight: 500,
-  ));
-}
+// :root {
+//    @include mat.toolbar-overrides((
+//      container-background-color : #86d4c2,
+//      container-text-color : #266456,
+//      title-text-weight: 500,
+//   ));
+// }
 
-* {
+// * {
 
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
-}
+//   box-sizing: border-box;
+//   font-family: 'Roboto', sans-serif;
+// }
 
-body, main, html {
-  margin: 0;
-  padding: 0;
-}
+// body, main, html {
+//   margin: 0;
+//   padding: 0;
+// }
 
-body {
-  background-color: #ECECEC;
-}
+// body {
+//   background-color: #ECECEC;
+// }
 
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
